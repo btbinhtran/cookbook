@@ -4,7 +4,8 @@
  */
 
 var Recipe = require('tower-recipe')
-  , fs = require('tower-fs');
+  , fs = require('tower-fs')
+  , noop = function(){};
 
 /**
  * Cookbook lookup paths.
