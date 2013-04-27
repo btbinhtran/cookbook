@@ -2,7 +2,7 @@
 /**
  * Example:
  *
- *    tower create recipe my-recipe
+ *    tower create cookbook my-cookbook
  */
 
 exports.create = function(recipe, args){
@@ -29,21 +29,20 @@ exports.remove = function(recipe, args){
 }
 
 /**
- * Install a recipe into $HOME/.tower/recipes
+ * Install a cookbook into $HOME/.tower/node_modules
  */
 
 exports.install = function(recipe, args){
   var path = require('path');
   var projectName = args[4];
 
-  process.chdir(path.join(process.env.HOME, '.tower/recipes'));
+  process.chdir(path.join(process.env.HOME, '.tower'));
 
   var spawn = require('child_process').spawn;
   
   spawn('npm', ['install', projectName], { stdio: 'inherit' })
     .on('exit', function(){
       // XXX: need to update the recipe so it looks in node_modules.
-      spawn('mv', [path.join('node_modules', projectName), projectName]);
     });
 }
 
