@@ -29,7 +29,6 @@ exports.find = function(name, directories){
     , key = parts.shift()
     , cookbook;
 
-  var a = new Date
   // XXX: cache
   //var paths = findOrCreateCookbookPaths();
   //if (paths && paths[key]) {
