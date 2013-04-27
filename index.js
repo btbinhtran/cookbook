@@ -27,8 +27,14 @@ exports.lookupDirectories = [
 exports.find = function(name, directories){
   var parts = name.split(':')
     , key = parts.shift()
-    , paths
     , cookbook;
+
+  var a = new Date
+  // XXX: cache
+  //var paths = findOrCreateCookbookPaths();
+  //if (paths && paths[key]) {
+  //  
+  //}
 
   directories || (directories = exports.lookupDirectories);
 
@@ -98,4 +104,21 @@ exports.exec = function(name, action, args, fn){
     method.call(recipe, recipe, args, fn || noop);
   else
     method.call(recipe, recipe, args);
+}
+
+/**
+ * Creates ~/.tower/config/cookbooks.json.
+ *
+ * XXX: We should probably generalize `cookbooks.json`
+ *      to include more packages.
+ */
+
+function findCookbookPaths() {
+  // XXX: refactor
+  var path = fs.join(process.env.HOME, '.tower');
+  if (!fs.existsSync(path)) fs.mkdirSync(path);
+  path = fs.join(path, 'config');
+  if (!fs.existsSync(path)) fs.mkdirSync(path);
+  path = fs.join(path, 'cookbooks.json');
+  if (fs.existsSync(path)) return fs.readFileSync(path);
 }
