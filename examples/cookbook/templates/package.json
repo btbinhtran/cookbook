@@ -1,5 +1,9 @@
 {
   "name": "<%= projectName %>-cookbook",
   "version": "0.0.1",
-  "main": "./app.js"
+  "main": "./app.js",
+  "dependencies": {
+    "commander": "*"
+  },
+  "cookbook": "<%= projectName %>"
 }
