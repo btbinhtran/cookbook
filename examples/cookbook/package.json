@@ -1,0 +1,6 @@
+{
+  "name": "tower-cookbook",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "cookbook": "cookbook"
+}

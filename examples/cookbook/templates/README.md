@@ -9,8 +9,8 @@ npm install <%= projectName %>
 ## API
 
 ```bash
-tower create <%= projectName %>
-tower remove <%= projectName %>
+$ tower create <%= projectName %>
+$ tower remove <%= projectName %>
 ```
 
 ## Licence

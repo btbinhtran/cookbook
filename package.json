@@ -4,6 +4,8 @@
   "main": "./index.js",
   "dependencies": {
     "tower-recipe": "*",
-    "tower-fs": "*"
+    "tower-fs": "*",
+    "commander": "~1.1.1",
+    "tower-strcase": "*"
   }
 }

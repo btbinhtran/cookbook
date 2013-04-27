@@ -11,8 +11,13 @@ exports.create = function(recipe, args){
 
   recipe.outputDirectory(options.outputDirectory);
   recipe.set('projectName', projectName);
+  recipe.set('strcase', require('tower-strcase'));
   recipe.directory(projectName, function(){
-    recipe.template('index.js', 'recipe.js');
+    recipe.template('index.js', 'cookbook.js');
+    recipe.template('package.json');
+    recipe.template('.gitignore');
+    recipe.template('.npmignore');
+    recipe.template('README.md', 'README.md');
     recipe.directory('templates');
   });
 }
