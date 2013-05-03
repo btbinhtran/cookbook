@@ -101,8 +101,10 @@ exports.exec = function(name, action, args, fn){
   // XXX: for nested methods, handle callback.
   if (3 === method.length)
     method.call(recipe, recipe, args, fn || noop);
-  else
+  else {
     method.call(recipe, recipe, args);
+    if (fn) fn();
+  }
 }
 
 /**
