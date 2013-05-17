@@ -3,19 +3,19 @@
  * Module dependencies.
  */
 
-var Recipe = require('tower-recipe')
-  , fs = require('tower-fs')
-  , noop = function(){};
+var Recipe = require('tower-recipe');
+var fs = require('tower-fs');
+var noop = function(){};
 
 /**
  * Cookbook lookup paths.
  */
 
 exports.lookupDirectories = [
-    fs.join(process.cwd(), 'cookbooks')
-  , fs.join(process.cwd(), 'lib/cookbooks')
-  , fs.join(process.env.HOME, '.tower/node_modules')
-  , fs.join(__dirname, 'examples')
+  fs.join(process.cwd(), 'cookbooks'),
+  fs.join(process.cwd(), 'lib/cookbooks'),
+  fs.join(process.env.HOME, '.tower/node_modules'),
+  fs.join(__dirname, 'examples')
 ];
 
 /**
@@ -25,9 +25,9 @@ exports.lookupDirectories = [
  */
 
 exports.find = function(name, directories){
-  var parts = name.split(':')
-    , key = parts.shift()
-    , cookbook;
+  var parts = name.split(':');
+  var key = parts.shift();
+  var cookbook;
 
   // XXX: cache
   //var paths = findOrCreateCookbookPaths();
@@ -74,7 +74,7 @@ exports.find = function(name, directories){
   }
 
   return cookbook;
-}
+};
 
 /**
  * Execute `action` on recipe `name`.
@@ -87,8 +87,8 @@ exports.find = function(name, directories){
  */
 
 exports.exec = function(name, action, args, fn){
-  var cookbook = exports.find(name)
-    , method = cookbook[action];
+  var cookbook = exports.find(name);
+  var method = cookbook[action];
 
   if (!method) {
     console.log('Cookbook [' + name + '] action [' + action + '] is not defined.');
@@ -105,7 +105,7 @@ exports.exec = function(name, action, args, fn){
     method.call(recipe, recipe, args);
     if (fn) fn();
   }
-}
+};
 
 /**
  * Creates ~/.tower/config/cookbooks.json.

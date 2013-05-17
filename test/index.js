@@ -1,5 +1,5 @@
-var cookbook = require('..')
-  , assert = require('assert');
+var cookbook = require('..');
+var assert = require('assert');
 
 describe('cookbook', function(){
   it('should test', function(){
