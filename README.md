@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install tower-cookbook
+$ npm install tower-cookbook
 ```
 
 ## Licence
