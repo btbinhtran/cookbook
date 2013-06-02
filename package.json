@@ -1,11 +1,11 @@
 {
   "name": "tower-cookbook",
-  "version": "0.5.0pre",
+  "version": "0.1.0pre",
   "main": "./index.js",
   "dependencies": {
-    "tower-recipe": "~0.5.0pre",
-    "tower-fs": "~0.5.0pre",
+    "tower-recipe": "~0.1.0pre",
+    "tower-fs": "~0.1.0pre",
     "commander": "~1.1.1",
-    "tower-strcase": "~0.5.0pre"
+    "tower-strcase": "~0.1.0pre"
   }
 }
