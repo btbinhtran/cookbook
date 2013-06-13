@@ -22,6 +22,10 @@ exports.lookupDirectories = [
  * Lookup a single cookbook.
  *
  * This is resolved from the command line.
+ *
+ * @param {String} name A cookbook name such as `ec2` or `ec2:instance`.
+ * @param {Array} directories An array of directory string paths.
+ * @return {Cookbook} A cookbook.
  */
 
 exports.find = function(name, directories){
@@ -82,7 +86,7 @@ exports.find = function(name, directories){
  * @param {String} name Name of the recipe.
  * @param {String} action Action (verb) the recipe implements.
  * @param {Array} args Arguments passed in from the command line (process.argv).
- * @param {Function} [fn] callback.
+ * @param {Function} The executed callback.
  * @api public
  */
 
@@ -112,6 +116,8 @@ exports.exec = function(name, action, args, fn){
  *
  * XXX: We should probably generalize `cookbooks.json`
  *      to include more packages.
+ *
+ * @return {String} An existin `cookbooks.json` file contents.
  */
 
 function findCookbookPaths() {
